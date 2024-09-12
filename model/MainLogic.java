@@ -1,4 +1,6 @@
-public Model {
+package model;
+
+public MainLogic {
 
     private int score;
 
@@ -12,7 +14,7 @@ public Model {
     private HashMap<String, Shinobi> shinobiGuide = new HashMap<>();
 
 
-    public Model() {
+    public MainLogic() {
         // initialize all shinobis here and add to an arraylist
     }
 

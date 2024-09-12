@@ -1,3 +1,5 @@
+package model;
+
 public abstract class Shinobi {
 
     // each shinobi has a name and picture, as well as a score for each catagory
