@@ -1,10 +1,10 @@
 import javax.swing.SwingUtilities;
+import controller.Controls;
+import model.MainLogic;
 
 public class Entry {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            ShinobiGame game = new ShinobiGame();
-            game.setVisible(true);
-        });
+        MainLogic model = new MainLogic();
+        Controls controller = new Controls(model);
     }
 }
