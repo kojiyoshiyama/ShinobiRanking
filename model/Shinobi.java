@@ -1,10 +1,9 @@
 package model;
 
-public abstract class Shinobi {
+public class Shinobi {
 
     // each shinobi has a name and picture, as well as a score for each catagory
     protected String name;
-    protected String picture; // URL or path to an image file
     protected int body;
     protected int clan;
     protected int sensei;
@@ -15,9 +14,8 @@ public abstract class Shinobi {
     protected int aura;
 
     // constructor for each unqiue shinobib 
-    public Shinobi(String name, String picture, int body, int clan, int sensei, int talent, int mind, int summon, int chakra, int aura) {
+    public Shinobi(String name, int body, int clan, int sensei, int talent, int mind, int summon, int chakra, int aura) {
         this.name = name;
-        this.picture = picture;
         this.body = body;
         this.clan = clan;
         this.sensei = sensei;
@@ -33,10 +31,6 @@ public abstract class Shinobi {
 
     public String getName() {
         return name;
-    }
-
-    public String getPicture() {
-        return picture;
     }
 
     public int getBody() {

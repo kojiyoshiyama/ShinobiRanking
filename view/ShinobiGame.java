@@ -54,14 +54,15 @@ public class ShinobiGame extends JFrame {
     private JButton selectAura;
 
     // the string[] that list all the shinobis that will be randomized in each catagory
-    private String[] bodyChoices = {"kiba", "killerBee", "mightGuy", "rockLee", "tenTen", "sakura", "tsunade", "shikamaru", "shino", "sasuke", }; 
-    private String[] ClanChoices = {"kiba", "killerBee", "mightGuy", "rockLee", "tenTen", "sakura", "tsunade", "shikamaru", "shino", "sasuke", };
-    private String[] SenseiChoices = {"kiba", "killerBee", "mightGuy", "rockLee", "tenTen", "sakura", "tsunade", "shikamaru", "shino", "sasuke", }; 
-    private String[] TalentChoices = {"kiba", "killerBee", "mightGuy", "rockLee", "tenTen", "sakura", "tsunade", "shikamaru", "shino", "sasuke", };
-    private String[] MindChoices = {"kiba", "killerBee", "mightGuy", "rockLee", "tenTen", "sakura", "tsunade", "shikamaru", "shino", "sasuke", }; 
-    private String[] SummonChoices = {"kiba", "killerBee", "mightGuy", "rockLee", "tenTen", "sakura", "tsunade", "shikamaru", "shino", "sasuke", }; 
-    private String[] ChakraChoices = {"kiba", "killerBee", "mightGuy", "rockLee", "tenTen", "sakura", "tsunade", "shikamaru", "shino", "sasuke", }; 
-    private String[] AuraChoices = {"kiba", "killerBee", "mightGuy", "rockLee", "tenTen", "sakura", "tsunade", "shikamaru", "shino", "sasuke", }; 
+    private String[] clanChoices = {"naruto", "sasuke", "neji", "madara", "hashirama", "itachi", "shino", "temari", "gaara", "kakashi", "kiba"};
+    private String[] senseiChoices = {"kakashi", "jiraiya", "hiruzen", "tsunade", "orochimaru", "minato", "mightGuy", "hashirama", "sasuke"};
+    private String[] summonChoices = {"naruto", "jiraiya", "orochimaru", "tsunade", "pain", "sasuke", "kakashi", "minato", "madara", "kiba", "zetsu"};
+
+    private String[] bodyChoices = {"killerBee", "mightGuy", "rockLee", "naruto", "sasuke", "tsunade", "sakura", "neji", "kisame", "madara", "hashirama", "itachi", "kakashi", "jiraiya", "hiruzen", "minato", "gaara", "zetsu", "pain", "orochimaru", "kiba", "shikamaru", "shino", "temari", "tenTen", "tobirama", "zetsu", "kaguya"};
+    private String[] talentChoices = {"naruto", "sasuke", "minato", "itachi", "neji", "hashirama", "jiraiya", "orochimaru", "madara", "pain", "tenTen", "killerBee", "mightGuy", "rockLee", "tsunade", "sakura", "kakashi", "hiruzen", "gaara", "zetsu", "kisame", "kiba", "shikamaru", "shino", "temari", "tobirama", "kaguya"};
+    private String[] mindChoices = {"itachi", "shikamaru", "kakashi", "sasuke", "madara", "orochimaru", "minato", "hiruzen", "pain", "jiraiya", "sakura", "naruto", "neji", "hashirama", "killerBee", "mightGuy", "rockLee", "tsunade", "gaara", "zetsu", "kisame", "kiba", "shino", "temari", "tenTen", "tobirama", "kaguya"};
+    private String[] chakraChoices = {"naruto", "killerBee", "kisame", "madara", "sasuke", "hashirama", "pain", "kaguya", "kakashi", "minato", "gaara", "itachi", "jiraiya", "hiruzen", "orochimaru", "neji", "tsunade", "sakura", "mightGuy", "rockLee", "shikamaru", "shino", "temari", "tenTen", "tobirama", "zetsu", "kiba"};
+    private String[] auraChoices = {"madara", "kaguya", "hashirama", "naruto", "sasuke", "pain", "itachi", "minato", "jiraiya", "hiruzen", "rockLee", "temari", "killerBee", "mightGuy", "tsunade", "sakura", "kakashi", "gaara", "orochimaru", "kisame", "neji", "shikamaru", "shino", "kiba", "zetsu", "tobirama", "tenTen"};
 
     //the timer used when going through rounds 
     private Timer timer;
@@ -211,7 +212,7 @@ public class ShinobiGame extends JFrame {
 
     // this method sets up the timer
     private void setUpTimer() {
-    timer = new Timer(150, new ActionListener() {
+        timer = new Timer(100, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             selectBody.setEnabled(false);
@@ -232,52 +233,56 @@ public class ShinobiGame extends JFrame {
             String randomSummon = ""; 
             String randomChakra = ""; 
             String randomAura = "";
-
             if (lockedIn[0] == 0) { 
                 // Randomize for bodyPics 
                 randomBody = bodyChoices[random.nextInt(bodyChoices.length)];
                 String bodyImagePath = getImagePathForShinobi(randomBody);
                 updateShinobiImage(bodyPics, bodyImagePath);
+
             }
             if (lockedIn[1] == 0) {  
                 // Randomize for clanPics
-                randomClan = ClanChoices[random.nextInt(ClanChoices.length)];
+                randomClan = clanChoices[random.nextInt(clanChoices.length)];
                 String clanImagePath = getImagePathForShinobi(randomClan);
                 updateShinobiImage(clanPics, clanImagePath);
+
             }
             if (lockedIn[2] == 0) {  
-                randomSensei = SenseiChoices[random.nextInt(SenseiChoices.length)];
+                randomSensei = senseiChoices[random.nextInt(senseiChoices.length)];
                 String senseiImagePath = getImagePathForShinobi(randomSensei);
                 updateShinobiImage(senseiPics, senseiImagePath);
+
             }
             // Randomize for senseiPics
             if (lockedIn[3] == 0) {  
                 // Randomize for talentPics
-                randomTalent = TalentChoices[random.nextInt(TalentChoices.length)];
+                randomTalent = talentChoices[random.nextInt(talentChoices.length)];
                 String talentImagePath = getImagePathForShinobi(randomTalent);
                 updateShinobiImage(talentPics, talentImagePath);
+
             }
             if (lockedIn[4] == 0) {  
                 // Randomize for mindPics
-                randomMind = MindChoices[random.nextInt(MindChoices.length)];
+                randomMind = mindChoices[random.nextInt(mindChoices.length)];
                 String mindImagePath = getImagePathForShinobi(randomMind);
                 updateShinobiImage(mindPics, mindImagePath);
+
             }
             if (lockedIn[5] == 0) { 
                 // Randomize for summonPics
-                randomSummon = SummonChoices[random.nextInt(SummonChoices.length)];
+                randomSummon = summonChoices[random.nextInt(summonChoices.length)];
                 String summonImagePath = getImagePathForShinobi(randomSummon);
                 updateShinobiImage(summonPics, summonImagePath); 
             }
             if (lockedIn[6] == 0) { 
                 // Randomize for chakraPics
-                randomChakra = ChakraChoices[random.nextInt(ChakraChoices.length)];
+                randomChakra = chakraChoices[random.nextInt(chakraChoices.length)];
                 String chakraImagePath = getImagePathForShinobi(randomChakra);
                 updateShinobiImage(chakraPics, chakraImagePath); 
             }
             if (lockedIn[7] == 0) { 
                 // Randomize for auraPics
-                randomAura = AuraChoices[random.nextInt(AuraChoices.length)];
+                randomAura = auraChoices[random.nextInt(auraChoices.length)];
                 String auraImagePath = getImagePathForShinobi(randomAura);
                 updateShinobiImage(auraPics, auraImagePath); 
             }
@@ -319,7 +324,7 @@ public class ShinobiGame extends JFrame {
     // check if its time to stop the randomiziation for this round
     private void stopRandomizing() {
         counter++;
-        if (counter > 20) {
+        if (counter > 10) {
             timer.stop();
             resetButtons();
             counter = 0;
